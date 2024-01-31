@@ -1,0 +1,15 @@
+﻿@page "/test2"
+@using General.Blazor.App.Models
+@using DevExpress.Blazor
+
+@inject ScopedDI ScopedDi
+@inject ScopedDI ScopedDi1
+@inject NavigationManager NM
+
+<h2>TEST 2</h2>
+
+<div>
+  <input type="range" @bind-value="ScopedDi.Count"/>
+  <input type="number" @bind-value="ScopedDi1.Count" />
+  <DxButton Click="@(()=>NM.NavigateTo("/"))">Ana Sayfa</DxButton>
+</div>
