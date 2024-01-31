@@ -25,8 +25,8 @@
 
 @if (showloading)
 {
-  <div class="loading-div" style="height:@height; width: @width;display: inline-flex">
-    <div class="loading" style="width: 100%; height: 100%">
+  <div class="loading-div" style="height:@height; width: @width;display: inline-flex;border-radius: 5px;">
+    <div class="loading" style="width: 100%; height: 100%;border-radius: inherit">
       <div class="circle"></div>
       <div class="circle"></div>
       <div class="circle"></div>
@@ -97,7 +97,7 @@
       <DxLoadingPanel Visible="false">
         <h1>MERHABA POPUP</h1>
         <DxCheckBox Checked="extendPopup" CheckedChanged="@((bool b) => { extendPopup = b; height = extendPopup ? "650px" : "400px"; })"></DxCheckBox>
-        <DxButton Click="@(() => { showloading = true; })"></DxButton>
+        <DxButton Click="@(() => { showloading = true; })">Loading</DxButton>
       </DxLoadingPanel>
     </ChildContent>
   </DxPopup>

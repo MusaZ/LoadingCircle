@@ -47,6 +47,8 @@
     animation: loadingg 1.5s ease-in-out infinite;
 }
 
+
+
 .loading {
     display: flex;
     justify-content: center;
