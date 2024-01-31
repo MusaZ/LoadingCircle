@@ -1,3 +1,7 @@
+:root{
+    --loading-color:rebeccapurple;
+}
+
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;
@@ -37,7 +41,7 @@
     position: absolute;
     left: calc((100% - 70px) / 2);
     top: calc(((100% - 30px) / 2) + 80px);
-    color: white;
+    color: var(--loading-color);
     font-weight: bolder;
     /*transition: opacity ease-in-out 1.5s;*/
     animation: loadingg 1.5s ease-in-out infinite;
@@ -49,6 +53,10 @@
     align-items: center;
     height: 100%;
     background: rgba(5,5,5,0.8);
+}
+
+.loading div {
+    background: var(--loading-color);
 }
 
 @keyframes loadingg {
