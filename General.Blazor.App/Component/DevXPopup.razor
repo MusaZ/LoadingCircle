@@ -126,8 +126,12 @@
 
   protected override void OnAfterRender(bool firstRender)
   {
-    var sizes = JS.InvokeAsync<Size>("getSizeDevXPopup").GetAwaiter().GetResult();
-    width = $"{sizes.Width}px";
-    height = $"{sizes.Height}px";
+    var sizes = JS.InvokeAsync<string[]>("getSizeDevXPopup").GetAwaiter();
+    sizes.OnCompleted(() =>
+    {
+      var data = sizes.GetResult();
+      width = $"{data[0]}px";
+      height = $"{data[1]}px";  
+    });
   }
 }
