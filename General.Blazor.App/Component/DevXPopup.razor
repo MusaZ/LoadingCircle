@@ -1,6 +1,7 @@
 ﻿@using Blazorise
 @using DevExpress.Blazor
 @using CurrieTechnologies.Razor.SweetAlert2
+@using DevExpress.Blazor.Internal.Grid
 @using General.Blazor.App.Models
 @using Size = General.Blazor.App.Models.Size
 
@@ -14,8 +15,7 @@
     position: absolute;   
     background: rgba(1,1,1,0.5);
     display: none;
-  }
-  
+  }  
 </style>
 
 @if (showloading && !loadshowing)
@@ -106,7 +106,14 @@
 }
 
 
-<DxPopup @ref=dxPopup Visible="Visible" VisibleChanged="VisibleChanged" CloseOnOutsideClick="false">
+<DxPopup @ref=dxPopup 
+         Visible="Visible" 
+         VisibleChanged="VisibleChanged" 
+         CloseOnOutsideClick="false"
+         CloseOnEscape="false"
+         onkeydown="checkKeystroke(event)"
+         
+         >
   <ChildContent>
     <h1>MERHABA POPUP</h1>
     <DxCheckBox Checked="extendPopup"
@@ -118,6 +125,16 @@
   </ChildContent>
 </DxPopup>
 
+@if (loadshowing)
+{
+  <script suppress-error="BL9992">    
+    function checkKeystroke(e) {
+            //if (e.keyCode === 9 || e.keyCode === 27) //
+            e.preventDefault();            
+            console.log(e.keyCode);
+    }
+  </script>  
+}
 
 @code
 {
@@ -144,7 +161,9 @@
                   Age = 25.5m
           }
   };
+  
 
+  
   protected override void OnAfterRender(bool firstRender)
   {
     // var sizes = JS.InvokeAsync<string[]>("startTimer").GetAwaiter();
