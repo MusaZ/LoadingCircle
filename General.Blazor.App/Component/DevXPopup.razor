@@ -12,79 +12,99 @@
     left: calc((100vw - @width) / 2);
     top: calc((100vh - @height) / 2); 
     position: absolute;   
-    background: rgba(1,1,1,0.5);;
+    background: rgba(1,1,1,0.5);
+    display: none;
   }
   
 </style>
 
-@if (showloading)
+@if (showloading && !loadshowing)
 {
-  <div class="loading-div" style="height:@dxPopup?.Height; width: @dxPopup?.Width;display: inline-flex;border-radius: 5px;">
-    <div class="loading" style="width: 100%; height: 100%;border-radius: inherit">
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-    </div>
-    <span class="loading-text">Loading...</span>
-  </div>
+  var getData = JS.InvokeAsync<string[]>("getSizeDevXPopup").GetAwaiter();
+  getData.OnCompleted(() =>
+  {
+    var sizes = getData.GetResult();
+    if (sizes is not null)
+    {
+      width = sizes[0] + "px";
+      height = sizes[1] + "px";
+      loadshowing = true;
+      StateHasChanged();
+    }
+  });
 }
+
+@if (loadshowing)
+{
+  <text>
+    <div class="loading-div" style="height:@height; width: @width;display: inline-flex;border-radius: 5px;">
+      <div class="loading" style="width: 100%; height: 100%;border-radius: inherit">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+      <span class="loading-text">Loading...</span>
+    </div>
+  </text>
+}
+
 
 <DxPopup @ref=dxPopup Visible="Visible" VisibleChanged="VisibleChanged" CloseOnOutsideClick="false">
   <ChildContent>
@@ -103,6 +123,7 @@
 {
   private DxPopup dxPopup;
   private bool showloading;
+  private bool loadshowing;
   private bool _visible;
 
   [Parameter] public bool Visible { get; set; }
@@ -110,28 +131,31 @@
   [Parameter] public EventCallback<bool> VisibleChanged { get; set; }
   private bool extendPopup = false;
 
-  private string width = "400px";
-  private string height = "400px";
+  private string width;
+  private string height;
 
   DxGrid dxGrid;
 
   public IList<Person> Persons = new List<Person>()
   {
-    new Person()
-    {
-      Name = "Musa",
-      Age = 25.5m
-    }
+          new Person()
+          {
+                  Name = "Musa",
+                  Age = 25.5m
+          }
   };
 
   protected override void OnAfterRender(bool firstRender)
   {
-    var sizes = JS.InvokeAsync<string[]>("getSizeDevXPopup").GetAwaiter();
-    sizes.OnCompleted(() =>
-    {
-      var data = sizes.GetResult();
-      width = $"{data[0]}px";
-      height = $"{data[1]}px";  
-    });
+    // var sizes = JS.InvokeAsync<string[]>("startTimer").GetAwaiter();
+    // sizes.OnCompleted(() =>
+    // {
+    //   var data = sizes.GetResult();
+    //   if (data is not null)
+    //   {
+    //     width = $"{data[0]}px";
+    //     height = $"{data[1]}px";  
+    //   }
+    // });
   }
 }
