@@ -102,6 +102,13 @@
       </div>
       <span class="loading-text">Loading...</span>
     </div>
+    <script suppress-error="BL9992">
+        function checkKeystroke(e) {
+                //if (e.keyCode === 9 || e.keyCode === 27) //
+                e.preventDefault();            
+                console.log(e.keyCode);
+        }
+      </script>  
   </text>
 }
 
@@ -124,17 +131,6 @@
     <div style="height: 650px;"></div>
   </ChildContent>
 </DxPopup>
-
-@if (loadshowing)
-{
-  <script suppress-error="BL9992">    
-    function checkKeystroke(e) {
-            //if (e.keyCode === 9 || e.keyCode === 27) //
-            e.preventDefault();            
-            console.log(e.keyCode);
-    }
-  </script>  
-}
 
 @code
 {
