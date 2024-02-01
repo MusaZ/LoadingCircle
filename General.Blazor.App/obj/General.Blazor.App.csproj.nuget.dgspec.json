@@ -1,41 +1,40 @@
 {
   "format": 1,
   "restore": {
-    "F:\\.NET Projects\\General.Blazor.App\\General.Blazor.App\\General.Blazor.App.csproj": {}
+    "E:\\.NET Projects\\LoadingCircle\\General.Blazor.App\\General.Blazor.App.csproj": {}
   },
   "projects": {
-    "F:\\.NET Projects\\General.Blazor.App\\General.Blazor.App\\General.Blazor.App.csproj": {
+    "E:\\.NET Projects\\LoadingCircle\\General.Blazor.App\\General.Blazor.App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\.NET Projects\\General.Blazor.App\\General.Blazor.App\\General.Blazor.App.csproj",
+        "projectUniqueName": "E:\\.NET Projects\\LoadingCircle\\General.Blazor.App\\General.Blazor.App.csproj",
         "projectName": "General.Blazor.App",
-        "projectPath": "F:\\.NET Projects\\General.Blazor.App\\General.Blazor.App\\General.Blazor.App.csproj",
-        "packagesPath": "C:\\Users\\Dijital&Kafa\\.nuget\\packages\\",
-        "outputPath": "F:\\.NET Projects\\General.Blazor.App\\General.Blazor.App\\obj\\",
+        "projectPath": "E:\\.NET Projects\\LoadingCircle\\General.Blazor.App\\General.Blazor.App.csproj",
+        "packagesPath": "C:\\Users\\ALAYC\\.nuget\\packages\\",
+        "outputPath": "E:\\.NET Projects\\LoadingCircle\\General.Blazor.App\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "E:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages",
           "E:\\Program Files\\DevExpress 23.2\\Components\\Offline Packages",
-          "E:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Dijital&Kafa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ALAYC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 23.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 23.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Telerik UI for WinForms.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Telerik UI for WPF.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files (x86)\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
-          "E:\\Program Files (x86)\\Progress\\Telerik UI for Blazor 4.0.0\\packages": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "E:\\Program Files\\DevExpress 23.1\\Components\\System\\Components\\Packages": {},
           "E:\\Program Files\\DevExpress 23.2\\Components\\System\\Components\\Packages": {},
-          "I:\\Program Files (x86)\\Progress\\Telerik UI for ASP.NET Core R3 2022\\wrappers\\aspnetcore\\Binaries\\AspNet.Core": {},
-          "N:\\PROGRAMLAR\\Telerik NuGet Packages R2_2023_SP2\\Telerik NuGet Package R2 2023 SP2": {},
           "https://api.nuget.org/v3/index.json": {},
           "https://nuget.fintechyazilim.com/v3/index.json": {}
         },
@@ -103,7 +102,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
