@@ -11,21 +11,23 @@
 
 <DxButton Click="@(() => NM.NavigateTo("/test1"))">Test 1</DxButton>
 <DxButton Click="@(() => NM.NavigateTo("/test2"))">Test 2</DxButton>
-<DxButton Click="@(async () => { visible = true; })">Sweet Alert</DxButton>
+<DxButton Click="@(async () => { visible = true; })">Popup</DxButton>
+<DxButton Click="@(async () => { loadingShowGrid = true; })">Gird Loading</DxButton>
 
 <DevXPopup @bind-Visible="visible">
 </DevXPopup> 
 
-  <DxGrid Data="Persons">
+  <DevXGrid Data="Persons" LoadingShow="loadingShowGrid">
     <Columns>
       <DxGridDataColumn Caption="Kolon 1" FieldName="Name"></DxGridDataColumn>
       <DxGridDataColumn Caption="Kolon 2" FieldName="Age"></DxGridDataColumn>
     </Columns>
-  </DxGrid>
+  </DevXGrid>
 
 @code {
   private bool visible;
   private bool gridLoading;
+  private bool loadingShowGrid;
 
   private List<Models.Person> Persons = new()
   {

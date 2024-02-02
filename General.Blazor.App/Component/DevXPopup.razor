@@ -10,9 +10,9 @@
 <style>
   .loading-div{
     z-index: 10500 !important;
-    left: calc((100vw - @width) / 2);
-    top: calc((100vh - @height) / 2); 
-    position: absolute;   
+    left: calc((100% - @width) / 2);     
+    top: calc((100% - @height) / 2);     
+    position: absolute;
     background: rgba(1,1,1,0.5);
     display: none;
   }  
@@ -20,7 +20,7 @@
 
 @if (showloading && !loadshowing)
 {
-  var getData = JS.InvokeAsync<string[]>("getSizeDevXPopup").GetAwaiter();
+  var getData = JS.InvokeAsync<string[]>("getSizeDevXPopup","dxbl-popup dxbl-popup-adaptivity").GetAwaiter();
   getData.OnCompleted(() =>
   {
     var sizes = getData.GetResult();
@@ -28,6 +28,8 @@
     {
       width = sizes[0] + "px";
       height = sizes[1] + "px";
+      left = sizes[2] + "px";
+      top = sizes[3] + "px";
       loadshowing = true;
       StateHasChanged();
     }
@@ -37,7 +39,8 @@
 @if (loadshowing)
 {
   <text>
-    <div class="loading-div" style="height:@height; width: @width;display: inline-flex;border-radius: 5px;">
+    <div class="loading-div" 
+         style="height:@height; width: @width;display: inline-flex;border-radius: 5px;">
       <div class="loading" style="width: 100%; height: 100%;border-radius: inherit">
         <div class="circle"></div>
         <div class="circle"></div>
@@ -139,6 +142,8 @@
 
   private string width;
   private string height;
+  private string left;
+  private string top;
   
   [Parameter] public bool Visible { get; set; }
 
