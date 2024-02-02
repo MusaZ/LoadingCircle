@@ -14,8 +14,26 @@
 <DxButton Click="@(async () => { visible = true; })">Sweet Alert</DxButton>
 
 <DevXPopup @bind-Visible="visible">
-</DevXPopup>
+</DevXPopup> 
+
+  <DxGrid Data="Persons">
+    <Columns>
+      <DxGridDataColumn Caption="Kolon 1" FieldName="Name"></DxGridDataColumn>
+      <DxGridDataColumn Caption="Kolon 2" FieldName="Age"></DxGridDataColumn>
+    </Columns>
+  </DxGrid>
 
 @code {
   private bool visible;
+  private bool gridLoading;
+
+  private List<Models.Person> Persons = new()
+  {
+    new() { Name = "Musa", Age = 34 },
+    new() { Name = "Musa", Age = 34 },
+    new() { Name = "Musa", Age = 34 },
+    new() { Name = "Musa", Age = 34 },
+    new() { Name = "Musa", Age = 34 },
+    new() { Name = "Musa", Age = 34 },
+  };
 }
