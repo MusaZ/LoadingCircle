@@ -1,4 +1,6 @@
-﻿@page "/test1"
+﻿@* @page "/test1/" *@
+@page "/test1/{id:int}/{muid:guid}"
+
 @using General.Blazor.App.Models
 @using DevExpress.Blazor
 
@@ -7,9 +9,26 @@
 @inject NavigationManager NM
 
 <h2>TEST 1</h2>
-
+<h3>@Id</h3>
+<h3>@muid</h3>
 <div>
   <input type="range" @bind-value="ScopedDi.Count"/>
-  <input type="number" @bind-value="ScopedDi1.Count" />
-  <DxButton Click="@(()=>NM.NavigateTo("/"))">Ana Sayfa</DxButton>
+  <input type="number" @bind-value="ScopedDi1.Count"/>
+  <DxButton Click="@(() => NM.NavigateTo("/"))">Ana Sayfa</DxButton>
 </div>
+
+@code{
+
+  [Parameter]
+  public int Id { get; set; }
+
+  [Parameter]
+  public Guid? muid { get; set; }
+
+  protected override void OnInitialized()
+  {
+    var idd = Id;
+    var guidd = muid;
+  }
+
+}

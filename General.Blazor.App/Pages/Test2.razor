@@ -7,9 +7,18 @@
 @inject NavigationManager NM
 
 <h2>TEST 2</h2>
+<h3>@Id</h3>
+<h3>@Muid</h3>
 
 <div>
   <input type="range" @bind-value="ScopedDi.Count"/>
   <input type="number" @bind-value="ScopedDi1.Count" />
   <DxButton Click="@(()=>NM.NavigateTo("/"))">Ana Sayfa</DxButton>
 </div>
+
+@code{
+
+  [Parameter][SupplyParameterFromQuery] public int Id { get; set; }
+  [Parameter][SupplyParameterFromQuery] public Guid Muid { get; set; }
+
+}

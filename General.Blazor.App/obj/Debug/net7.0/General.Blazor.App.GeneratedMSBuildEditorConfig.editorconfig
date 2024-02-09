@@ -28,6 +28,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50XERldlhQb3B1cC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/.NET Projects/General.Blazor.App/General.Blazor.App/Component/Loading.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50XExvYWRpbmcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/.NET Projects/General.Blazor.App/General.Blazor.App/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

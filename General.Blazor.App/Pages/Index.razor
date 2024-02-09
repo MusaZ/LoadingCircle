@@ -9,8 +9,8 @@
 @inject NavigationManager NM
 @inject SweetAlertService Swal
 
-<DxButton Click="@(() => NM.NavigateTo("/test1"))">Test 1</DxButton>
-<DxButton Click="@(() => NM.NavigateTo("/test2"))">Test 2</DxButton>
+<DxButton Click="@(() => NM.NavigateTo($"/test1/355/{Guid.NewGuid()}"))">Test 1</DxButton>
+<DxButton Click="@(() => NM.NavigateTo($"/test2?Id=453&Muid={Guid.NewGuid()}"))">Test 2</DxButton>
 <DxButton Click="@(async () => { visible = true; })">Popup</DxButton>
 <DxButton Click="@(async () => { loadingShowGrid = true; })">Gird Loading</DxButton>
 
