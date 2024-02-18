@@ -17,6 +17,7 @@
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)sweetalert.blazor\1.6.2\buildTransitive\SweetAlert.Blazor.props" Condition="Exists('$(NuGetPackageRoot)sweetalert.blazor\1.6.2\buildTransitive\SweetAlert.Blazor.props')" />
+    <Import Project="$(NuGetPackageRoot)postsharp\2023.0.8\build\PostSharp.props" Condition="Exists('$(NuGetPackageRoot)postsharp\2023.0.8\build\PostSharp.props')" />
     <Import Project="E:\Program Files\DevExpress 23.2\Components\Offline Packages\devexpress.blazor.themes\23.2.3\buildTransitive\DevExpress.Blazor.Themes.props" Condition="Exists('E:\Program Files\DevExpress 23.2\Components\Offline Packages\devexpress.blazor.themes\23.2.3\buildTransitive\DevExpress.Blazor.Themes.props')" />
     <Import Project="E:\Program Files\DevExpress 23.2\Components\Offline Packages\devexpress.blazor\23.2.3\buildTransitive\net5.0\DevExpress.Blazor.props" Condition="Exists('E:\Program Files\DevExpress 23.2\Components\Offline Packages\devexpress.blazor\23.2.3\buildTransitive\net5.0\DevExpress.Blazor.props')" />
     <Import Project="$(NuGetPackageRoot)currietechnologies.razor.sweetalert2\5.5.0\buildTransitive\CurrieTechnologies.Razor.SweetAlert2.props" Condition="Exists('$(NuGetPackageRoot)currietechnologies.razor.sweetalert2\5.5.0\buildTransitive\CurrieTechnologies.Razor.SweetAlert2.props')" />

@@ -23,10 +23,8 @@ F:\.NET Projects\General.Blazor.App\General.Blazor.App\obj\Debug\net7.0\staticwe
 F:\.NET Projects\General.Blazor.App\General.Blazor.App\obj\Debug\net7.0\staticwebassets.development.json
 F:\.NET Projects\General.Blazor.App\General.Blazor.App\obj\Debug\net7.0\scopedcss\bundle\General.Blazor.App.styles.css
 F:\.NET Projects\General.Blazor.App\General.Blazor.App\obj\Debug\net7.0\General.Blazor.App.dll
-F:\.NET Projects\General.Blazor.App\General.Blazor.App\obj\Debug\net7.0\refint\General.Blazor.App.dll
 F:\.NET Projects\General.Blazor.App\General.Blazor.App\obj\Debug\net7.0\General.Blazor.App.pdb
 F:\.NET Projects\General.Blazor.App\General.Blazor.App\obj\Debug\net7.0\General.Blazor.App.genruntimeconfig.cache
-F:\.NET Projects\General.Blazor.App\General.Blazor.App\obj\Debug\net7.0\ref\General.Blazor.App.dll
 F:\.NET Projects\General.Blazor.App\General.Blazor.App\bin\Debug\net7.0\DevExpress.Blazor.v23.2.dll
 F:\.NET Projects\General.Blazor.App\General.Blazor.App\bin\Debug\net7.0\DevExpress.Data.v23.2.dll
 F:\.NET Projects\General.Blazor.App\General.Blazor.App\bin\Debug\net7.0\DevExpress.Drawing.v23.2.dll
@@ -154,3 +152,9 @@ E:\.NET Projects\LoadingCircle\General.Blazor.App\obj\Debug\net7.0\refint\Genera
 E:\.NET Projects\LoadingCircle\General.Blazor.App\obj\Debug\net7.0\General.Blazor.App.pdb
 E:\.NET Projects\LoadingCircle\General.Blazor.App\obj\Debug\net7.0\General.Blazor.App.genruntimeconfig.cache
 E:\.NET Projects\LoadingCircle\General.Blazor.App\obj\Debug\net7.0\ref\General.Blazor.App.dll
+F:\.NET Projects\General.Blazor.App\General.Blazor.App\bin\Debug\net7.0\General.Blazor.App.pssym
+F:\.NET Projects\General.Blazor.App\General.Blazor.App\bin\Debug\net7.0\General.Blazor.App.pspdb
+F:\.NET Projects\General.Blazor.App\General.Blazor.App\bin\Debug\net7.0\PostSharp.dll
+F:\.NET Projects\General.Blazor.App\General.Blazor.App\obj\Debug\net7.0\PostSharp\touch
+F:\.NET Projects\General.Blazor.App\General.Blazor.App\obj\Debug\net7.0\PostSharp\AdditionalBuildDependencies.txt
+F:\.NET Projects\General.Blazor.App\General.Blazor.App\obj\Debug\net7.0\PostSharp\postsharp.app.config

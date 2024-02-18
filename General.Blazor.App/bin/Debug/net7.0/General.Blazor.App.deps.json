@@ -14,6 +14,8 @@
           "Blazorise.Icons.FontAwesome": "1.4.1",
           "CurrieTechnologies.Razor.SweetAlert2": "5.5.0",
           "DevExpress.Blazor": "23.2.3",
+          "PostSharp": "2023.0.8",
+          "PostSharp.Redist": "2023.0.8",
           "SweetAlert.Blazor": "1.6.2"
         },
         "runtime": {
@@ -406,6 +408,19 @@
           "lib/net6.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "13.0.0.0",
             "fileVersion": "13.0.2.27524"
+          }
+        }
+      },
+      "PostSharp/2023.0.8": {
+        "dependencies": {
+          "PostSharp.Redist": "2023.0.8"
+        }
+      },
+      "PostSharp.Redist/2023.0.8": {
+        "runtime": {
+          "lib/net7.0/PostSharp.dll": {
+            "assemblyVersion": "2023.0.8.0",
+            "fileVersion": "2023.0.8.0"
           }
         }
       },
@@ -1420,6 +1435,20 @@
       "sha512": "sha512-R2pZ3B0UjeyHShm9vG+Tu0EBb2lC8b0dFzV9gVn50ofHXh9Smjk6kTn7A/FdAsC8B5cKib1OnGYOXxRBz5XQDg==",
       "path": "newtonsoft.json/13.0.2",
       "hashPath": "newtonsoft.json.13.0.2.nupkg.sha512"
+    },
+    "PostSharp/2023.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HFftYAKi7YWix8ypYqMq7l3TX8YGXiaMlqWUD6G0chS3NVkcJGxwvzPcgae6hl78abD6hTKHWMP99CdOQftFjw==",
+      "path": "postsharp/2023.0.8",
+      "hashPath": "postsharp.2023.0.8.nupkg.sha512"
+    },
+    "PostSharp.Redist/2023.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-X/d4W+3wGVbszDZ8u6X9FG0ml4dJscL4a6fasuT4iHKtJJDdCN2nnvQpYhlmQCMZq4UfBgyDOzjs1+cvPl/HdQ==",
+      "path": "postsharp.redist/2023.0.8",
+      "hashPath": "postsharp.redist.2023.0.8.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",

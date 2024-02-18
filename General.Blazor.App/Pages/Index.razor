@@ -9,33 +9,62 @@
 @inject NavigationManager NM
 @inject SweetAlertService Swal
 
-<DxButton Click="@(() => NM.NavigateTo($"/test1/355/{Guid.NewGuid()}"))">Test 1</DxButton>
-<DxButton Click="@(() => NM.NavigateTo($"/test2?Id=453&Muid={Guid.NewGuid()}"))">Test 2</DxButton>
+<DxButton Click="@(() => NM.NavigateTo($"/test1/{Random.Shared.Next()}/{Guid.NewGuid()}"))">Test 1</DxButton>
+<DxButton Click="@(() => NM.NavigateTo($"/test2?Id={Random.Shared.Next()}&Muid={Guid.NewGuid()}"))">Test 2</DxButton>
 <DxButton Click="@(async () => { visible = true; })">Popup</DxButton>
 <DxButton Click="@(async () => { loadingShowGrid = true; })">Gird Loading</DxButton>
 
 <DevXPopup @bind-Visible="visible">
-</DevXPopup> 
+</DevXPopup>
 
-  <DevXGrid Data="Persons" LoadingShow="loadingShowGrid">
-    <Columns>
-      <DxGridDataColumn Caption="Kolon 1" FieldName="Name"></DxGridDataColumn>
-      <DxGridDataColumn Caption="Kolon 2" FieldName="Age"></DxGridDataColumn>
-    </Columns>
-  </DevXGrid>
+<DevXGrid Data="Persons" LoadingShow="loadingShowGrid">
+  <Columns>
+    <DxGridDataColumn Caption="Kolon 1" FieldName="Name"></DxGridDataColumn>
+    <DxGridDataColumn Caption="Kolon 2" FieldName="Age"></DxGridDataColumn>
+  </Columns>
+</DevXGrid>
+@foreach (var item in Persons.GroupBy(p => p.Name, p => p.Active, (s, actives) => new
+          {
+                  s, actives
+          }))
+{
+  <DxAccordion SelectionMode="NavigationSelectionMode.Single" 
+               ExpandMode="AccordionExpandMode.MultipleOrNone" 
+               ExpandCollapseAction="AccordionExpandCollapseAction.ExpandButtonClick">
+    <ItemHeaderTextTemplate>
+      <DxCheckBox Checked="selectAll">Select All</DxCheckBox>
+    </ItemHeaderTextTemplate>
+    <Items>
+      <DxAccordionItem>
+        <ContentTemplate>
+          @foreach (var v in item.actives)
+          {
+            <text>
+              <div style="height: 30px;width: 100%">
+                <DxCheckBox Checked="@v">@item.s</DxCheckBox>
+              </div>
+            </text>
+          }
+        </ContentTemplate>
+      </DxAccordionItem>
+    </Items>
+  </DxAccordion>
+}
 
 @code {
   private bool visible;
   private bool gridLoading;
   private bool loadingShowGrid;
+  private bool selectAll;
 
   private List<Models.Person> Persons = new()
   {
-    new() { Name = "Musa", Age = 34 },
-    new() { Name = "Musa", Age = 34 },
-    new() { Name = "Musa", Age = 34 },
-    new() { Name = "Musa", Age = 34 },
-    new() { Name = "Musa", Age = 34 },
-    new() { Name = "Musa", Age = 34 },
+          new() { Id = 0, Name = "Musa", Age = 34 },
+          new() { Id = 1, Name = "Musa", Age = 34 },
+          new() { Id = 2, Name = "Mehmet", Age = 34 },
+          new() { Id = 3, Name = "Mehmet", Age = 34 },
+          new() { Id = 4, Name = "Ali", Age = 34 },
+          new() { Id = 5, Name = "Ali", Age = 34 },
   };
+
 }

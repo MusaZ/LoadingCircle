@@ -20,7 +20,7 @@
 
 @if (showloading && !loadshowing)
 {
-  var getData = JS.InvokeAsync<string[]>("getSizeDevXPopup","dxbl-popup dxbl-popup-adaptivity").GetAwaiter();
+  var getData = JS.InvokeAsync<string[]>("getSizeDevXPopup", "dxbl-popup dxbl-popup-adaptivity").GetAwaiter();
   getData.OnCompleted(() =>
   {
     var sizes = getData.GetResult();
@@ -39,7 +39,7 @@
 @if (loadshowing)
 {
   <text>
-    <div class="loading-div" 
+    <div class="loading-div"
          style="height:@height; width: @width;display: inline-flex;border-radius: 5px;">
       <Loading></Loading>
       <span class="loading-text">@LoadingText</span>
@@ -48,17 +48,16 @@
         function checkKeystroke(e) {
                 e.preventDefault();
         }
-      </script>  
+      </script>
   </text>
 }
 
-<DxPopup @ref=dxPopup 
-         Visible="Visible" 
-         VisibleChanged="VisibleChanged" 
+<DxPopup @ref=dxPopup
+         Visible="Visible"
+         VisibleChanged="VisibleChanged"
          CloseOnOutsideClick="false"
          CloseOnEscape="false"
-         onkeydown="checkKeystroke(event)"
-         >
+         onkeydown="checkKeystroke(event)">
   <ChildContent>
     <h1>MERHABA POPUP</h1>
     <DxCheckBox Checked="extendPopup"
@@ -73,7 +72,7 @@
 @code
 {
   private DxPopup dxPopup;
-  
+
   private bool showloading;
   private bool loadshowing;
   private bool _visible;
@@ -83,10 +82,10 @@
   private string height;
   private string left;
   private string top;
-  
+
   [Parameter] public bool Visible { get; set; }
 
   [Parameter] public string LoadingText { get; set; } = "Loading";
-  
+
   [Parameter] public EventCallback<bool> VisibleChanged { get; set; }
 }

@@ -13,6 +13,8 @@
     <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.4.1" />
     <PackageReference Include="CurrieTechnologies.Razor.SweetAlert2" Version="5.5.0" />
     <PackageReference Include="DevExpress.Blazor" Version="23.2.3" />
+    <PackageReference Include="PostSharp" Version="2023.0.8" />
+    <PackageReference Include="PostSharp.Redist" Version="2023.0.8" />
     <PackageReference Include="SweetAlert.Blazor" Version="1.6.2" />
   </ItemGroup>
 
