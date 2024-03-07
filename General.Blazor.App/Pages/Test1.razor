@@ -1,5 +1,5 @@
 ﻿@* @page "/test1/" *@
-@page "/test1/{id:int}/{muid:guid}"
+@page "/test1/{id:int}/{muid}"
 
 @using General.Blazor.App.Models
 @using DevExpress.Blazor
@@ -19,11 +19,19 @@
 
 @code{
 
-  [Parameter]
-  public int Id { get; set; }
+  [Parameter] public int Id { get; set; }
 
-  [Parameter]
-  public Guid? muid { get; set; }
+  [Parameter] public string? muid { get; set; }
+  [Parameter] public int ActiveIndex { get; set; }
+
+  public override async Task SetParametersAsync(ParameterView parameters)
+  {
+    await base.SetParametersAsync(parameters);
+    var iddd = Id;
+    ActiveIndex = int.Parse(muid.Substring(muid.LastIndexOf("-") + 1));
+    var idd = muid.Substring(0, muid.LastIndexOf("-"));
+    var index = ActiveIndex;
+  }
 
   protected override void OnInitialized()
   {

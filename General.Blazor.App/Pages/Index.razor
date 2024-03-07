@@ -9,7 +9,7 @@
 @inject NavigationManager NM
 @inject SweetAlertService Swal
 
-<DxButton Click="@(() => NM.NavigateTo($"/test1/{Random.Shared.Next()}/{Guid.NewGuid()}"))">Test 1</DxButton>
+<DxButton Click="@(() => NM.NavigateTo($"/test1/{Random.Shared.Next()}/{Guid.NewGuid()}-{Random.Shared.Next()}"))">Test 1</DxButton>
 <DxButton Click="@(() => NM.NavigateTo($"/test2?Id={Random.Shared.Next()}&Muid={Guid.NewGuid()}"))">Test 2</DxButton>
 <DxButton Click="@(async () => { visible = true; })">Popup</DxButton>
 <DxButton Click="@(async () => { loadingShowGrid = true; })">Gird Loading</DxButton>
@@ -51,7 +51,40 @@
   </DxAccordion>
 }
 
+<DxAccordion SelectionMode="NavigationSelectionMode.Single" 
+             ExpandMode="AccordionExpandMode.MultipleOrNone" 
+             ExpandCollapseAction="AccordionExpandCollapseAction.ExpandButtonClick"
+             @ref=dxAccordion
+             >
+  <ItemHeaderTextTemplate>
+    <DxCheckBox Checked="selectAll">Select All</DxCheckBox>
+  </ItemHeaderTextTemplate>
+  <Items>
+    @foreach (var item in Persons.GroupBy(p => p.Name, p => p.Active, (s, actives) => new
+              {
+                      s, actives
+              }))
+    {
+    <DxAccordionItem>
+      <ContentTemplate>
+      @foreach (var v in item.actives)
+      {
+        <text>
+          <div style="height: 30px;width: 100%">
+            <DxCheckBox Checked="@v">@item.s</DxCheckBox>
+          </div>
+        </text>
+      }
+      </ContentTemplate>
+    </DxAccordionItem>
+    }
+  </Items>
+</DxAccordion>
+
+
+
 @code {
+  private DxAccordion dxAccordion;
   private bool visible;
   private bool gridLoading;
   private bool loadingShowGrid;
@@ -66,5 +99,11 @@
           new() { Id = 4, Name = "Ali", Age = 34 },
           new() { Id = 5, Name = "Ali", Age = 34 },
   };
+  
+  protected override async Task OnAfterRenderAsync(bool firstRender)
+  {
+    if(firstRender) 
+      dxAccordion.ExpandAll();
+  }
 
 }
